@@ -3,6 +3,10 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+  {# make podcast details variables accessible globally from any page #}
+  {% set podcast = get('podcastdetails')%}
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -25,9 +29,6 @@
     {% block head_extra %}{% endblock %}
   </head>
   <body>
-
-    {# make podcast details variables accessible globally from any page #}
-    {% set podcast = get('podcastdetails')%}
 
     {% block body %}
       <!--[if lt IE 7]>
