@@ -1,0 +1,40 @@
+{# Grab the cast from the CMS #}
+{% set cast_members = get('castmembers') %}
+<section class="podcast-title">
+  <div class="container">
+    <div class="about">
+      <p>{{ podcast.description }}</p>
+    </div>
+    <div class="details">
+      <h4>Follow</h4>
+      <ul class="links">
+        {% if podcast.itunes_url %}
+          <li><a href="{{ podcast.itunes_url }}" class="fa fa-apple"> iTunes</a></li>
+        {% endif %}
+          <li><a href="/rss.xml" class="fa fa-rss-square no-ajaxy"> RSS</a></li>
+        {% if podcast.twitter %}
+        <li><a href="{{ podcast.twitter }}" class="fa fa-twitter"> @{{ podcast.twitter }}</a></li>
+        {% endif %}
+      </ul>
+      <h4>Cast members</h4>
+      <ul class="cast">
+        {# Make sure Regulars show up first. #}
+        {% for type in cast_members|groupBy('cast_type') %}
+          {% if loop.key == "Regular" %}
+            {% for cast in type %}
+              <li><a href="{{ url(cast) }}">{{ cast.name }}</a></li>
+            {% endfor %}
+          {% else %}
+              {# Might be lots of guests. Let's hide them till you click. #}
+              <li class="number-of-guests"><a class="no-ajaxy">+ {{ type|size }} Guest{% if type|size > 1 %}s{% endif %}</a></li>
+              {% for cast in type %}
+                {# Hide these by default #}
+                <li class="guests"><a href="{{ url(cast) }}">{{ cast.name }}</a></li>
+              {% endfor %}
+            {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+

@@ -7,34 +7,7 @@
 
 {% block content %}
 
-  {% set cast_members = get('castmembers') %}
-  <section class="podcast-title">
-    <div class="container">
-      <div class="about">
-        <p>{{ podcast.description }}</p>
-      </div>
-      <div class="details">
-        <h4>Follow</h4>
-        <ul class="links">
-          {% if podcast.itunes_url %}
-            <li><a href="{{ podcast.itunes_url }}" class="fa fa-apple"> iTunes</a></li>
-          {% endif %}
-            <li><a href="/rss.xml" class="fa fa-rss-square no-ajaxy"> RSS</a></li>
-          {% if podcast.twitter %}
-          <li><a href="{{ podcast.twitter }}" class="fa fa-twitter"> @{{ podcast.twitter }}</a></li>
-          {% endif %}
-        </ul>
-        <h4>Cast members</h4>
-        <ul class="cast">
-          {% for type in cast_members|groupBy('cast_type') %}
-            {% for cast in type %}
-              <li><a href="{{ url(cast) }}">{{ cast.name }}</a></li>
-            {% endfor %}
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </section>
+  {% include "templates/partials/podcast_title.html" %}
 
   {# Copy this to any page you want episodes data on. #}
   {% set episodes = get('episodes') %}
