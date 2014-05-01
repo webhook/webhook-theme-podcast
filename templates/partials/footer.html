@@ -1,0 +1,17 @@
+<a href="http://www.webhook.com" class="built-with-webhook">
+  <div class="wh-logo"></div>
+  <span>Built with Webhook.</span>
+</a>
+
+
+{% set podcasts = get("episodes") %}
+{% set podcasts = podcasts|where('audio_file') %}
+{% set podcasts = podcasts|sort('publish_date', true) %}
+
+<footer>
+  {% if podcasts|size > 0 && podcasts[0].audio_file %}
+    <audio id="audioPlayer" src="{{ podcasts[0].audio_file.url }}" data-original-title="{{ podcasts[0].name }}" preload="auto"></audio>
+  {% else %}
+    <audio id="audioPlayer" preload="auto"></audio>
+  {% endif %}
+</footer>

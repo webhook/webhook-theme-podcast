@@ -1,0 +1,46 @@
+{# INDIVIDUAL VIEW FOR EACH episodes #}
+{# You can find a full list of variables to use on this page in your CMS. #}
+{% extends "templates/partials/base.html" %}
+{% block content %}
+  <div class="single-episode container">
+    <article>
+      <h1>{{ item.name }}</h1>
+      {{ item.short_bio|safe }}
+      {% if item.facebook_url or item.twitter %}
+        <h4>Follow</h4>
+        <ul class="links">
+          {% if item.facebook_url %}
+            <li><a href="{{ item.facebook_url }}" class="fa fa-facebook"> Facebook</a></li>
+          {% endif %}
+          {% if item.twitter %}
+            <li><a href="http://www.twitter.com/{{ item.twitter }}" class="fa fa-twitter"> @{{ item.twitter }}</a></li>
+          {% endif %}
+        </ul>
+      {% endif %}
+      <hr/>
+      {% if item.episodes %}
+        <h2><strong>Episodes</strong></h2>
+        <ul class="cast-episodes">
+          {% for relation in item.episodes %}
+            {% set rel = getItem(relation) %}
+            {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
+            <li>
+              <a href="{{ url(rel) }}">
+                <img src="{{ rel.image|imageCrop(50) }}">
+                <h4>{{ rel.name }}</h4>
+                <p>{{ rel.description|striptags|truncate(100) }}</p>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </article>
+
+    <section class="img">
+      <img src="{{ item.image|imageSize(500) }}" />
+    </section>
+  </div>
+
+
+{% endblock %}
+

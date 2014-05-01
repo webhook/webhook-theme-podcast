@@ -1,0 +1,36 @@
+{# INDIVIDUAL VIEW FOR EACH episodes #}
+{# You can find a full list of variables to use on this page in your CMS. #}
+{% extends "templates/partials/base.html" %}
+{% block content %}
+  <div class="single-episode container">
+    <article>
+      <h1>Episode #{{ item.number }}</h1>
+      <h4>{{ item.name }}{% if item.subtitle %}: {{ item.name_subtitle }}{% endif %}</h4>
+      <p class="controls">
+        {% if item.audio_file %}
+          <span class="listen icon fa fa-play js-player-go" data-audio-url="{{ item.audio_file.url }}" data-audio-title="{{ item.name }}"> Listen</span>
+          <a href="{{ item.audio_file.url }}" class="download icon fa fa-download"> Download</a>
+        {% endif %}
+      </p>
+      {{ item.description|safe }}
+      <p class="fa fa-calendar"> Published on {{ item.publish_date|date('F d Y') }}</p>
+      {# HTML5 audio player for your listening pleasure. #}
+      <p><strong>In this episode</strong></p>
+      <ul class="cast">
+        {% for relation in item.cast_in_this_episode %}
+          {% set rel = getItem(relation) %}
+          {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
+          <li><a href="{{ url(rel) }}">{{ rel.name }}</a></li>
+        {% endfor %}
+      </ul>
+      <div id="disqus_thread"></div>
+    </article>
+
+    <section class="img">
+      <img src="{{ item.image|imageSize(500) }}" />
+    </section>
+  </div>
+
+  {% include "templates/partials/disqus.html" %}
+
+{% endblock %}

@@ -1,0 +1,129 @@
+@import wyrm_core/wy_variables
+
+// bourbon.io framework
+@import bourbon
+
+// Bourbon.io/neat framework, with some default media queries
+@import wyrm_core/grid_settings
+@import neat
+
+// Custom reset
+@import wyrm_core/reset
+
+// Wyrm mixins
+@import wyrm_core/mixin
+
+// Font awesome and overwrites.
+@import font-awesome
+@import wyrm_core/font_icon_defaults
+
+footer
+  position: fixed
+  bottom: 0
+  width: 100%
+  left: 0
+  background: $gray-darker
+  color: $white
+  .audiojs
+    position: relative
+    width: 100%
+    height: 45px
+  .play-pause, .title, .scrubber, .time
+    position: absolute
+  .play-pause
+    left: 170px
+    top: 14px
+  .title
+    width: 140px
+    left: 15px
+    top: 13px
+    text-align: right
+    color: $gray-light
+  .time
+    right: 15px
+    width: 120px
+    top: 12px
+    color: $gray
+    strong
+      color: $gray-light
+  .scrubber
+    left: 200px
+    right: 200px
+    height: 15px
+    top: 15px
+    background: $gray-dark
+    height: 15px
+    cursor: pointer
+  .loaded
+    background: $gray
+    height: 15px
+    position: absolute
+    left: 0
+    top: 0
+  .progress
+    background: $orange
+    position: absolute
+    left: 0
+    top: 0
+    height: 15px
+    z-index: 2
+  .pause, .loading .pause, .playing .play, .playing .loading, .playing .error, .loading .play, .loading .pause, .loading .error, .error .time, .error .play, .error .pause, .error .scrubber, .error .loading
+    display: none
+  .playing .loading
+    display: none !important
+  .playing .pause
+    display: block
+  .loading .loading
+    display: block
+  .error .error-message
+    position: absolute
+    left: 0
+    top: 15px
+    font-size: 80%
+    color: $red
+    width: 100%
+    text-align: center
+  .loading .loading
+    @extend .fa
+    @extend .fa-refresh
+    +animation(rotation .6s infinite linear)
+    cursor: pointer
+  .play
+    @extend .fa
+    @extend .fa-play
+    cursor: pointer
+  .volume-buttons
+    position: absolute
+    right: 155px
+    top: 14px
+    &.on
+      display: block
+  .vol-up
+    @extend .fa
+    @extend .fa-volume-up
+    cursor: pointer
+  .vol-down
+    @extend .fa
+    @extend .fa-volume-down
+    cursor: pointer
+  .pause
+    @extend .fa
+    @extend .fa-pause
+    cursor: pointer
+  .title
+    color: $white
+  .vol-up, .vol-down, .play, .pause
+    &:hover
+      color: $gray-lighter
+    &:active
+      color: $orange
+
++media($mobile)
+  footer
+    .time, .volume-buttons.on, .title
+      display: none
+    .play-pause
+      left: 15px
+    .scrubber
+      left: 40px
+      right: 15px

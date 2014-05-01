@@ -1,0 +1,25 @@
+{# LIST VIEW OF ALL castmembers #}
+{# You can find a full list of variables to use on this page in your CMS. #}
+
+{% extends "templates/partials/base.html" %}
+
+{% block content %}
+  <div class="cast-list">
+
+    {% set castmembers = get('castmembers') %}
+
+    <ul class="boxes">
+      {% for cast in castmembers|sort('cast_type', true) %}
+        <li>
+          <a href="{{ url(cast) }}">
+            <img src="{{ cast.image|imageCrop(300) }}">
+            <h4>{{ cast.name }}</h4>
+            <p class="date">{{ cast.cast_type }}</p>
+            <p class="desc">{{ cast.short_bio|striptags|truncate(100) }}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+{% endblock %}

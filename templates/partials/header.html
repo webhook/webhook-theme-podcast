@@ -1,0 +1,16 @@
+{% set curUrl = getCurrentUrl() %}
+{% set check_for_blog = get('blog') %}
+
+<nav>
+  <div class="container">
+    <span class="mobile-menu-btn fa fa-bars"> Menu</span>
+    <ul>
+      <li class="home {% if getCurrentUrl() == "/" %}active{% endif %}"><a href="/">{{ podcast.name }}</a></li>
+      {% if check_for_blog %}
+        <li class="{% if curUrl|startsWith('/episodes') %}active{% endif %}"><a href="/episodes/">Episodes</a></li>
+        <li class="{% if curUrl|startsWith('/blog') %}active{% endif %}"><a href="/blog/">Blog</a></li>
+      {% endif %}
+      <li class="{% if curUrl|startsWith('/castmembers') %}active{% endif %}"><a href="/castmembers/">Cast</a></li>
+    </ul>
+  </div>
+</nav>

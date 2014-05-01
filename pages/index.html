@@ -1,0 +1,81 @@
+{# Homepage #}
+
+{# Extend the base template, which already passes the podcast details as a var called 'podcast'. #}
+{% extends "templates/partials/base.html" %}
+
+{% block content %}
+
+  {# Grab the cast from the CMS #}
+  {% set cast_members = get('castmembers') %}
+  <section class="podcast-title">
+    <div class="container">
+      <div class="about">
+        <p>{{ podcast.description }}</p>
+      </div>
+      <div class="details">
+        <h4>Follow</h4>
+        <ul class="links">
+          {% if podcast.itunes_url %}
+            <li><a href="{{ podcast.itunes_url }}" class="fa fa-apple"> iTunes</a></li>
+          {% endif %}
+            <li><a href="/rss.xml" class="fa fa-rss-square no-ajaxy"> RSS</a></li>
+          {% if podcast.twitter %}
+          <li><a href="{{ podcast.twitter }}" class="fa fa-twitter"> @{{ podcast.twitter }}</a></li>
+          {% endif %}
+        </ul>
+        <h4>Cast members</h4>
+        <ul class="cast">
+          {# Make sure Regulars show up first. #}
+          {% for type in cast_members|groupBy('cast_type') %}
+            {% if loop.key == "Regular" %}
+              {% for cast in type %}
+                <li><a href="{{ url(cast) }}">{{ cast.name }}</a></li>
+              {% endfor %}
+            {% else %}
+                {# Might be lots of guests. Let's hide them till you click. #}
+                <li class="number-of-guests"><a class="no-ajaxy">+ {{ type|size }} Guest{% if type|size > 1 %}s{% endif %}</a></li>
+                {% for cast in type %}
+                  {# Hide these by default #}
+                  <li class="guests"><a href="{{ url(cast) }}">{{ cast.name }}</a></li>
+                {% endfor %}
+              {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {# Group podcasts episodes and the blog into a single array. #}
+  {% set editorial = get('episodes','blog') %}
+  {% set editorial = editorial|sort('publish_date', true) %}
+
+  <ul class="boxes">
+    {% for item in editorial %}
+      <li>
+        {# Episodes and podcasts are slightly different #}
+        {% if item._type == "episodes" %}
+          <a href="{{ url(item) }}">
+            <img src="{{ item.image|imageCrop(300) }}">
+            <h4>Episode: #{{ item.number }}</h4>
+            <p class="date">{{ item.publish_date|date('F d Y') }}</p>
+            <p class="desc">{{ item.description|striptags|truncate(100) }}</p>
+          </a>
+          {% if item.audio_file %}
+            <span class="listen icon fa fa-play js-player-go" data-audio-url="{{ item.audio_file.url }}" data-audio-title="{{ item.name }}"> Listen</span>
+            <a href="{{ item.audio_file.url }}" class="download icon fa fa-download"> Download</a>
+          {% endif %}
+        {% else %}
+          <a href="{{ url(item) }}">
+            {# Build a fake cover for blogs, apply a background color if the CMS provides one. #}
+            <div class="square" style="background-color:{{ item.square_color }}"><span>{{ item.name }}</span></div>
+            <h4>Blog post</h4>
+            <p class="date">{{ item.publish_date|date('F d Y') }}</p>
+            <p class="desc">{{ item.deck|striptags|truncate(100) }}</p>
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+
+
+{% endblock %}

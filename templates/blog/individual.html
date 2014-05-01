@@ -1,0 +1,33 @@
+{# INDIVIDUAL VIEW FOR EACH blog #}
+{# You can find a full list of variables to use on this page in your CMS. #}
+{% extends "templates/partials/base.html" %}
+{% block content %}
+<div class="blog-individual container">
+  <div class="wrap">
+  <div class="title">
+    <h1>{{ item.name }}</h1>
+    <h3>{{ item.deck }}</h3>
+    <strong>
+      Posted by
+      {% for relation in item.author %}
+        {% set rel = getItem(relation) %}
+        {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
+        <a href="{{ url(rel) }}">{{ rel.name }}</a>{% if not loop.last %},{% endif %}
+      {% endfor %} on
+      {{ item.publish_date|date('F d Y') }}
+    </strong>
+  </div>
+
+  <hr/>
+
+  <article>
+    {{ item.body|safe }}
+  </article>
+
+  <div id="disqus_thread"></div>
+  </div>
+
+  {% include "templates/partials/disqus.html" %}
+
+</div>
+{% endblock %}

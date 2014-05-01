@@ -1,0 +1,41 @@
+{# LIST VIEW OF ALL blog #}
+{# You can find a full list of variables to use on this page in your CMS. #}
+
+{% extends "templates/partials/base.html" %}
+
+{% block content %}
+
+  {# Copy this to any page you want blog data on. #}
+  {% set data = get('blog') %}
+
+  {# This is how you set pagination. #}
+  {% set data = paginate(data, 5) %}
+
+  <div class="container blog-list">
+    <div class="wrap">
+    <ul>
+      {% for object in data %}
+        <li>
+          <a href="{{ url(object) }}">
+            <h2>{{ object.name }}</h2>
+            <h3>{{ object.deck }}</h3>
+            <strong>
+              Posted by
+              {% for relation in object.author %}
+                {% set rel = getItem(relation) %}
+                {# You can ouput more than just the name. Feel free to output more fields from the CMS. #}
+                <a href="{{ url(rel) }}">{{ rel.name }}</a>{% if not loop.last %},{% endif %}
+              {% endfor %} on
+              {{ object.publish_date|date('F d Y') }}
+            </strong>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {# The actual pagination template, feel free to edit or replace the default one. #}
+    {% include "templates/partials/paginator.html" %}
+    </div>
+  </div>
+
+{% endblock %}

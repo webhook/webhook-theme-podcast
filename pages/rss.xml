@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+{% set podcast = get('podcastdetails')%}
+{% set episodes = get('episodes')%}
+{% set episodes = episodes|sort('publish_date', true)%}
+
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:itunesu="http://www.itunesu.com/feed" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" >
+    <channel>
+      <title>{{ podcast.name }}</title>
+      <link>{{ podcast.website }}</link>
+        <language>en-us</language>
+        <copyright>{{ podcast.copyright }}</copyright>
+        <itunes:subtitle>{{ podcast.subtitle }}</itunes:subtitle>
+        <itunes:author>{{ podcast.author }}</itunes:author>
+        <itunes:summary>{{ podcast.description }}</itunes:summary>
+        <description>{{ podcast.description }}</description>
+        <itunes:owner>
+          <itunes:name>{{ podcast.author }}</itunes:name>
+          <itunes:email>{{ podcast.emaile }}</itunes:email>
+        </itunes:owner>
+        <itunes:image href="{{ podcast.image.url }}"/>
+        <itunes:explicit>{{ podcast.explicit }}</itunes:explicit>
+        <itunes:category text="Gadgets"></itunes:category>
+        <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="{{ getCurrentUrl() }}" rel="self" type="application/rss+xml"/>
+        {% for episode in episodes %}
+          <item>
+              <title>{{ episode.name }}</title>
+              <itunes:author>{{ podcast.author }}</itunes:author>
+              <itunes:subtitle>{{ episode.subtitle }}</itunes:subtitle>
+              <itunes:summary>{{ episode.description }}</itunes:summary>
+              <itunes:image href="{{ epsidoe.image.url }}" />
+              <enclosure url="{{ getSetting('siteUrl') }}{{ episode.audio_file.url }}"
+                length="{{ episode.audio_file.duration }}" type="{{ episode.audio_file.type }}"/>
+              <guid>{{ getSetting('siteURL') }}{{ epsisode.audio_file.url }}</guid>
+              <pubDate>{{ episode.publish_date|date("D, j M Y H:i:s ") }}</pubDate>
+              {# Calculate duration in hours:minutes:seconds. #}
+              <itunes:duration>{{ episode.audio_file.duration|duration }}</itunes:duration>
+          </item>
+        {% endfor %}
+    </channel>
+</rss>
+

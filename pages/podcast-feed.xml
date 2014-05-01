@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+
+<channel>
+
+  <title>{{ podcast.name }}</title>
+
+  <link>{{ podcast.website }}</link>
+
+  <language>en-us</language>
+
+  {% if podcast.copyright %}
+    <copyright>&#x2117; &amp; &#xA9; {{ podcast.copyright }}</copyright>
+  {% endif %}
+
+  {% if podcast.subtitle %}
+    <itunes:subtitle>{{ podcast.subtitle }}</itunes:subtitle>
+  {% endif %}
+
+  <itunes:author>{{ podcast.author }}</itunes:author>
+
+  <itunes:summary>{{ podcast.description }}</itunes:summary>
+
+  <description>{{ podcast.description }}</description>
+
+  <itunes:owner>
+    <itunes:name>{{ podcast.author }}</itunes:name>
+    <itunes:email>{{ podcast.email }}</itunes:email>
+  </itunes:owner>
+
+  <itunes:image href="{{ podcast.image }}" />
+
+  {# You'll want to set these manually. Check https://www.apple.com/itunes/podcasts/specs.html#categories for reference. #}
+  {# <itunes:category text="Technology"> #}
+  {#   <itunes:category text="Gadgets"/></itunes:category> #}
+  {# <itunes:category text="TV &#38;amp; Film"/> #}
+
+  {% set episodes = get('epidoses')%}
+
+  {% for episode in episodes %}
+
+    <item>
+
+      <title>{{ episode.name }}</title>
+
+      <itunes:author>{{ podcast.author }}</itunes:author>
+
+      <itunes:subtitle>{{ episode.subtitle }}</itunes:subtitle>
+
+      <itunes:summary>{{ episode.description }}</itunes:summary>
+
+      <itunes:image href="{{ episode.image }}" />
+
+      <enclosure url="{{ episode.audio_file }}" length="8727310" type="audio/x-m4a" />
+
+      <guid>{{ episode.audio_file }}</guid>
+
+      <pubDate>{{ episode.publish_date|date('D, j M Y h:i:s e') }} Wed, 15 Jun 2005 19:00:00 GMT</pubDate>
+
+      <itunes:duration>{{ episode.duration }}</itunes:duration>
+
+    </item>
+
+  {% endfor %}
+
+
+</channel>
+
+</rss>
