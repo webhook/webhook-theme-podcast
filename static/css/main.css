@@ -337,7 +337,7 @@ big, small {
     page-break-after: avoid;
   }
 }
-.fa:before, footer .loading .loading:before, footer .play:before, footer .vol-up:before, footer .vol-down:before, footer .pause:before, .wy-dropdown .caret:before, .wy-inline-validate.wy-inline-validate-success .wy-input-context:before, .wy-inline-validate.wy-inline-validate-danger .wy-input-context:before, .wy-inline-validate.wy-inline-validate-warning .wy-input-context:before, .wy-inline-validate.wy-inline-validate-info .wy-input-context:before, .wy-figure-controls span.wy-figure-controls-arrow-left:before, .wy-figure-controls span.wy-figure-controls-arrow-right:before, .wy-figure-controls span.wy-figure-controls-arrow-up:before, .wy-figure-controls span.wy-figure-controls-arrow-down:before, .wy-figure-controls span.wy-figure-controls-resize-full:before, .wy-figure-controls span.wy-figure-controls-resize-small:before, .wy-figure-controls span.wy-figure-controls-delete:before, .wy-figure-controls span.wy-figure-controls-table:before, .wy-alert, .btn, input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="date"], input[type="month"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="week"], input[type="number"], input[type="search"], input[type="tel"], input[type="color"], select, textarea {
+.fa:before, footer .loading .loading:before, footer .play:before, footer .vol-up:before, footer .vol-down:before, footer .pause:before, .wy-inline-validate.wy-inline-validate-success .wy-input-context:before, .wy-inline-validate.wy-inline-validate-danger .wy-input-context:before, .wy-inline-validate.wy-inline-validate-warning .wy-input-context:before, .wy-inline-validate.wy-inline-validate-info .wy-input-context:before, .wy-figure-controls span.wy-figure-controls-arrow-left:before, .wy-figure-controls span.wy-figure-controls-arrow-right:before, .wy-figure-controls span.wy-figure-controls-arrow-up:before, .wy-figure-controls span.wy-figure-controls-arrow-down:before, .wy-figure-controls span.wy-figure-controls-resize-full:before, .wy-figure-controls span.wy-figure-controls-resize-small:before, .wy-figure-controls span.wy-figure-controls-delete:before, .wy-figure-controls span.wy-figure-controls-table:before, .btn, input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="date"], input[type="month"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="week"], input[type="number"], input[type="search"], input[type="tel"], input[type="color"], select, textarea {
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1349,7 +1349,7 @@ big, small {
   content: "\f0d6";
 }
 
-.fa-caret-down:before, .wy-dropdown .caret:before {
+.fa-caret-down:before {
   content: "\f0d7";
 }
 
@@ -2093,10 +2093,10 @@ big, small {
   content: "\f196";
 }
 
-.fa, footer .loading .loading, footer .play, footer .vol-up, footer .vol-down, footer .pause, .wy-dropdown .caret, .wy-inline-validate.wy-inline-validate-success .wy-input-context, .wy-inline-validate.wy-inline-validate-danger .wy-input-context, .wy-inline-validate.wy-inline-validate-warning .wy-input-context, .wy-inline-validate.wy-inline-validate-info .wy-input-context, .wy-figure-controls span.wy-figure-controls-arrow-left, .wy-figure-controls span.wy-figure-controls-arrow-right, .wy-figure-controls span.wy-figure-controls-arrow-up, .wy-figure-controls span.wy-figure-controls-arrow-down, .wy-figure-controls span.wy-figure-controls-resize-full, .wy-figure-controls span.wy-figure-controls-resize-small, .wy-figure-controls span.wy-figure-controls-delete, .wy-figure-controls span.wy-figure-controls-table {
+.fa, footer .loading .loading, footer .play, footer .vol-up, footer .vol-down, footer .pause, .wy-inline-validate.wy-inline-validate-success .wy-input-context, .wy-inline-validate.wy-inline-validate-danger .wy-input-context, .wy-inline-validate.wy-inline-validate-warning .wy-input-context, .wy-inline-validate.wy-inline-validate-info .wy-input-context, .wy-figure-controls span.wy-figure-controls-arrow-left, .wy-figure-controls span.wy-figure-controls-arrow-right, .wy-figure-controls span.wy-figure-controls-arrow-up, .wy-figure-controls span.wy-figure-controls-arrow-down, .wy-figure-controls span.wy-figure-controls-resize-full, .wy-figure-controls span.wy-figure-controls-resize-small, .wy-figure-controls span.wy-figure-controls-delete, .wy-figure-controls span.wy-figure-controls-table {
   font-family: inherit;
 }
-.fa:before, footer .loading .loading:before, footer .play:before, footer .vol-up:before, footer .vol-down:before, footer .pause:before, .wy-dropdown .caret:before, .wy-inline-validate.wy-inline-validate-success .wy-input-context:before, .wy-inline-validate.wy-inline-validate-danger .wy-input-context:before, .wy-inline-validate.wy-inline-validate-warning .wy-input-context:before, .wy-inline-validate.wy-inline-validate-info .wy-input-context:before, .wy-figure-controls span.wy-figure-controls-arrow-left:before, .wy-figure-controls span.wy-figure-controls-arrow-right:before, .wy-figure-controls span.wy-figure-controls-arrow-up:before, .wy-figure-controls span.wy-figure-controls-arrow-down:before, .wy-figure-controls span.wy-figure-controls-resize-full:before, .wy-figure-controls span.wy-figure-controls-resize-small:before, .wy-figure-controls span.wy-figure-controls-delete:before, .wy-figure-controls span.wy-figure-controls-table:before {
+.fa:before, footer .loading .loading:before, footer .play:before, footer .vol-up:before, footer .vol-down:before, footer .pause:before, .wy-inline-validate.wy-inline-validate-success .wy-input-context:before, .wy-inline-validate.wy-inline-validate-danger .wy-input-context:before, .wy-inline-validate.wy-inline-validate-warning .wy-input-context:before, .wy-inline-validate.wy-inline-validate-info .wy-input-context:before, .wy-figure-controls span.wy-figure-controls-arrow-left:before, .wy-figure-controls span.wy-figure-controls-arrow-right:before, .wy-figure-controls span.wy-figure-controls-arrow-up:before, .wy-figure-controls span.wy-figure-controls-arrow-down:before, .wy-figure-controls span.wy-figure-controls-resize-full:before, .wy-figure-controls span.wy-figure-controls-resize-small:before, .wy-figure-controls span.wy-figure-controls-delete:before, .wy-figure-controls span.wy-figure-controls-table:before {
   font-family: "FontAwesome";
   display: inline-block;
   font-style: normal;
@@ -2134,107 +2134,6 @@ a .fa, a footer .loading .loading, footer .loading a .loading, a footer .play, f
 .btn-mini .fa:before, .btn-mini footer .loading .loading:before, footer .loading .btn-mini .loading:before, .btn-mini footer .play:before, footer .btn-mini .play:before, .btn-mini footer .vol-up:before, footer .btn-mini .vol-up:before, .btn-mini footer .vol-down:before, footer .btn-mini .vol-down:before, .btn-mini footer .pause:before, footer .btn-mini .pause:before {
   font-size: 14px;
   vertical-align: -15%;
-}
-
-.wy-alert {
-  padding: 12px;
-  line-height: 24px;
-  margin-bottom: 24px;
-  background: #e7f2fa;
-}
-
-.wy-alert-title {
-  color: white;
-  font-weight: bold;
-  display: block;
-  color: white;
-  background: #6ab0de;
-  margin: -12px;
-  padding: 6px 12px;
-  margin-bottom: 12px;
-}
-
-.wy-alert.wy-alert-danger {
-  background: #fdf3f2;
-}
-.wy-alert.wy-alert-danger .wy-alert-title {
-  background: #f29f97;
-}
-
-.wy-alert.wy-alert-warning {
-  background: #ffedcc;
-}
-.wy-alert.wy-alert-warning .wy-alert-title {
-  background: #f0b37e;
-}
-
-.wy-alert.wy-alert-info {
-  background: #e7f2fa;
-}
-.wy-alert.wy-alert-info .wy-alert-title {
-  background: #6ab0de;
-}
-
-.wy-alert.wy-alert-success {
-  background: #dbfaf4;
-}
-.wy-alert.wy-alert-success .wy-alert-title {
-  background: #1abc9c;
-}
-
-.wy-alert.wy-alert-neutral {
-  background: #f3f6f6;
-}
-.wy-alert.wy-alert-neutral .wy-alert-title {
-  color: #404040;
-  background: #e1e4e5;
-}
-.wy-alert.wy-alert-neutral a {
-  color: #e67e22;
-}
-
-.wy-alert p:last-child {
-  margin-bottom: 0;
-}
-
-.wy-tray-container {
-  position: fixed;
-  bottom: 0px;
-  left: 0;
-  z-index: 600;
-}
-.wy-tray-container li {
-  display: block;
-  width: 300px;
-  background: transparent;
-  color: white;
-  text-align: center;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
-  padding: 0 24px;
-  min-width: 20%;
-  opacity: 0;
-  height: 0;
-  line-height: 60px;
-  overflow: hidden;
-  -webkit-transition: all 0.3s ease-in;
-  -moz-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-}
-.wy-tray-container li.wy-tray-item-success {
-  background: #27ae60;
-}
-.wy-tray-container li.wy-tray-item-info {
-  background: #2980b9;
-}
-.wy-tray-container li.wy-tray-item-warning {
-  background: #e67e22;
-}
-.wy-tray-container li.wy-tray-item-danger {
-  background: #e74c3c;
-}
-.wy-tray-container li.on {
-  opacity: 1;
-  height: 60px;
 }
 
 button {
@@ -2421,99 +2320,6 @@ button[disabled] {
 }
 .wy-btn-group:after {
   clear: both;
-}
-
-.wy-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.wy-dropdown-menu {
-  position: absolute;
-  left: 0;
-  display: none;
-  float: left;
-  top: 100%;
-  min-width: 100%;
-  background: #fcfcfc;
-  z-index: 100;
-  border: solid 1px #cfd7dd;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-  padding: 12px;
-}
-.wy-dropdown-menu > dd > a {
-  display: block;
-  clear: both;
-  color: #404040;
-  white-space: nowrap;
-  font-size: 90%;
-  padding: 0 12px;
-  cursor: pointer;
-}
-.wy-dropdown-menu > dd > a:hover {
-  background: #e67e22;
-  color: white;
-}
-.wy-dropdown-menu > dd.divider {
-  border-top: solid 1px #cfd7dd;
-  margin: 6px 0;
-}
-.wy-dropdown-menu > dd.search {
-  padding-bottom: 12px;
-}
-.wy-dropdown-menu > dd.search input[type="search"] {
-  width: 100%;
-}
-.wy-dropdown-menu > dd.call-to-action {
-  background: #e3e3e3;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 80%;
-}
-.wy-dropdown-menu > dd.call-to-action:hover {
-  background: #e3e3e3;
-}
-.wy-dropdown-menu > dd.call-to-action .btn {
-  color: white;
-}
-
-.wy-dropdown.wy-dropdown-up .wy-dropdown-menu {
-  bottom: 100%;
-  top: auto;
-  left: auto;
-  right: 0;
-}
-
-.wy-dropdown.wy-dropdown-bubble .wy-dropdown-menu {
-  background: #fcfcfc;
-  margin-top: 2px;
-}
-.wy-dropdown.wy-dropdown-bubble .wy-dropdown-menu a {
-  padding: 6px 12px;
-}
-.wy-dropdown.wy-dropdown-bubble .wy-dropdown-menu a:hover {
-  background: #e67e22;
-  color: white;
-}
-
-.wy-dropdown.wy-dropdown-left .wy-dropdown-menu {
-  right: 0;
-  text-align: right;
-}
-
-.wy-dropdown-arrow:before {
-  content: " ";
-  border-bottom: 5px solid whitesmoke;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  position: absolute;
-  display: block;
-  top: -4px;
-  left: 50%;
-  margin-left: -3px;
-}
-.wy-dropdown-arrow.wy-dropdown-arrow-left:before {
-  left: 11px;
 }
 
 .wy-form-stacked select {
@@ -4230,7 +4036,7 @@ big, small {
     page-break-after: avoid;
   }
 }
-.fa:before, footer .loading .loading:before, footer .play:before, footer .vol-up:before, footer .vol-down:before, footer .pause:before, .wy-dropdown .caret:before, .wy-inline-validate.wy-inline-validate-success .wy-input-context:before, .wy-inline-validate.wy-inline-validate-danger .wy-input-context:before, .wy-inline-validate.wy-inline-validate-warning .wy-input-context:before, .wy-inline-validate.wy-inline-validate-info .wy-input-context:before, .wy-figure-controls span.wy-figure-controls-arrow-left:before, .wy-figure-controls span.wy-figure-controls-arrow-right:before, .wy-figure-controls span.wy-figure-controls-arrow-up:before, .wy-figure-controls span.wy-figure-controls-arrow-down:before, .wy-figure-controls span.wy-figure-controls-resize-full:before, .wy-figure-controls span.wy-figure-controls-resize-small:before, .wy-figure-controls span.wy-figure-controls-delete:before, .wy-figure-controls span.wy-figure-controls-table:before, .wy-alert, .btn, input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="date"], input[type="month"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="week"], input[type="number"], input[type="search"], input[type="tel"], input[type="color"], select, textarea {
+.fa:before, footer .loading .loading:before, footer .play:before, footer .vol-up:before, footer .vol-down:before, footer .pause:before, .wy-inline-validate.wy-inline-validate-success .wy-input-context:before, .wy-inline-validate.wy-inline-validate-danger .wy-input-context:before, .wy-inline-validate.wy-inline-validate-warning .wy-input-context:before, .wy-inline-validate.wy-inline-validate-info .wy-input-context:before, .wy-figure-controls span.wy-figure-controls-arrow-left:before, .wy-figure-controls span.wy-figure-controls-arrow-right:before, .wy-figure-controls span.wy-figure-controls-arrow-up:before, .wy-figure-controls span.wy-figure-controls-arrow-down:before, .wy-figure-controls span.wy-figure-controls-resize-full:before, .wy-figure-controls span.wy-figure-controls-resize-small:before, .wy-figure-controls span.wy-figure-controls-delete:before, .wy-figure-controls span.wy-figure-controls-table:before, .btn, input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="date"], input[type="month"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="week"], input[type="number"], input[type="search"], input[type="tel"], input[type="color"], select, textarea {
   -webkit-font-smoothing: antialiased;
 }
 
@@ -5242,7 +5048,7 @@ big, small {
   content: "\f0d6";
 }
 
-.fa-caret-down:before, .wy-dropdown .caret:before {
+.fa-caret-down:before {
   content: "\f0d7";
 }
 
@@ -5986,10 +5792,10 @@ big, small {
   content: "\f196";
 }
 
-.fa, footer .loading .loading, footer .play, footer .vol-up, footer .vol-down, footer .pause, .wy-dropdown .caret, .wy-inline-validate.wy-inline-validate-success .wy-input-context, .wy-inline-validate.wy-inline-validate-danger .wy-input-context, .wy-inline-validate.wy-inline-validate-warning .wy-input-context, .wy-inline-validate.wy-inline-validate-info .wy-input-context, .wy-figure-controls span.wy-figure-controls-arrow-left, .wy-figure-controls span.wy-figure-controls-arrow-right, .wy-figure-controls span.wy-figure-controls-arrow-up, .wy-figure-controls span.wy-figure-controls-arrow-down, .wy-figure-controls span.wy-figure-controls-resize-full, .wy-figure-controls span.wy-figure-controls-resize-small, .wy-figure-controls span.wy-figure-controls-delete, .wy-figure-controls span.wy-figure-controls-table {
+.fa, footer .loading .loading, footer .play, footer .vol-up, footer .vol-down, footer .pause, .wy-inline-validate.wy-inline-validate-success .wy-input-context, .wy-inline-validate.wy-inline-validate-danger .wy-input-context, .wy-inline-validate.wy-inline-validate-warning .wy-input-context, .wy-inline-validate.wy-inline-validate-info .wy-input-context, .wy-figure-controls span.wy-figure-controls-arrow-left, .wy-figure-controls span.wy-figure-controls-arrow-right, .wy-figure-controls span.wy-figure-controls-arrow-up, .wy-figure-controls span.wy-figure-controls-arrow-down, .wy-figure-controls span.wy-figure-controls-resize-full, .wy-figure-controls span.wy-figure-controls-resize-small, .wy-figure-controls span.wy-figure-controls-delete, .wy-figure-controls span.wy-figure-controls-table {
   font-family: inherit;
 }
-.fa:before, footer .loading .loading:before, footer .play:before, footer .vol-up:before, footer .vol-down:before, footer .pause:before, .wy-dropdown .caret:before, .wy-inline-validate.wy-inline-validate-success .wy-input-context:before, .wy-inline-validate.wy-inline-validate-danger .wy-input-context:before, .wy-inline-validate.wy-inline-validate-warning .wy-input-context:before, .wy-inline-validate.wy-inline-validate-info .wy-input-context:before, .wy-figure-controls span.wy-figure-controls-arrow-left:before, .wy-figure-controls span.wy-figure-controls-arrow-right:before, .wy-figure-controls span.wy-figure-controls-arrow-up:before, .wy-figure-controls span.wy-figure-controls-arrow-down:before, .wy-figure-controls span.wy-figure-controls-resize-full:before, .wy-figure-controls span.wy-figure-controls-resize-small:before, .wy-figure-controls span.wy-figure-controls-delete:before, .wy-figure-controls span.wy-figure-controls-table:before {
+.fa:before, footer .loading .loading:before, footer .play:before, footer .vol-up:before, footer .vol-down:before, footer .pause:before, .wy-inline-validate.wy-inline-validate-success .wy-input-context:before, .wy-inline-validate.wy-inline-validate-danger .wy-input-context:before, .wy-inline-validate.wy-inline-validate-warning .wy-input-context:before, .wy-inline-validate.wy-inline-validate-info .wy-input-context:before, .wy-figure-controls span.wy-figure-controls-arrow-left:before, .wy-figure-controls span.wy-figure-controls-arrow-right:before, .wy-figure-controls span.wy-figure-controls-arrow-up:before, .wy-figure-controls span.wy-figure-controls-arrow-down:before, .wy-figure-controls span.wy-figure-controls-resize-full:before, .wy-figure-controls span.wy-figure-controls-resize-small:before, .wy-figure-controls span.wy-figure-controls-delete:before, .wy-figure-controls span.wy-figure-controls-table:before {
   font-family: "FontAwesome";
   display: inline-block;
   font-style: normal;
