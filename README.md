@@ -2,7 +2,11 @@
 
 Design by Dave Snider. MIT License. Do what you will with it.
 
-## Customization
+## Anything I should know?
+
+Uses [audio.js](http://kolber.github.io/audiojs/) for the player and [ajaxify.js](https://github.com/browserstate/ajaxify) for the persistance.
+
+## Sass
 
 I've included the Sass files if you're so inclined. I'm using my [Wyrm Sass](http://www.wyrmsass.org) framwork.
 Just run a `bower install` after you've installed the theme, then add the following to your Gruntfile.js.

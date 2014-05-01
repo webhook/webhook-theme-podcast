@@ -1,6 +1,9 @@
 {# INDIVIDUAL VIEW FOR EACH blog #}
 {# You can find a full list of variables to use on this page in your CMS. #}
 {% extends "templates/partials/base.html" %}
+
+{% block title %}{{ podcast.name }} - {{ item.name }}{% endblock %}
+
 {% block content %}
 <div class="blog-individual container">
   <div class="wrap">
