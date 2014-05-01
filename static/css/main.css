@@ -3462,6 +3462,9 @@ nav .mobile-menu-btn {
   padding: 3px 6px;
   cursor: pointer;
 }
+.links li a:hover, .cast li a:hover {
+  color: white;
+}
 
 .blog-list .wrap {
   max-width: 700px;
