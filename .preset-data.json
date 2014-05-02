@@ -1,0 +1,568 @@
+{
+  "blog": {
+    "controls": [
+      {
+        "controlType": "textfield",
+        "hidden": false,
+        "label": "Name",
+        "locked": true,
+        "name": "name",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "relation",
+        "help": "Attach cast member(s) that wrote this blog.",
+        "hidden": false,
+        "label": "Author",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "castmembers",
+          "reverseName": "blog_posts"
+        },
+        "name": "author",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Create Date",
+        "locked": true,
+        "name": "create_date",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Last Updated",
+        "locked": true,
+        "name": "last_updated",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Publish Date",
+        "locked": true,
+        "name": "publish_date",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textarea",
+        "help": "Short pagagraph that summarizes your blog.",
+        "hidden": false,
+        "label": "Deck",
+        "locked": false,
+        "name": "deck",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "wysiwyg",
+        "hidden": false,
+        "label": "Body",
+        "locked": false,
+        "meta": {
+          "image": true,
+          "link": true,
+          "quote": true,
+          "table": true,
+          "video": true
+        },
+        "name": "body",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "textfield",
+        "hidden": true,
+        "label": "Preview URL",
+        "locked": true,
+        "name": "preview_url",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "color",
+        "help": "Optional. Blogs show within a square on the homepage. This lets you define the color.",
+        "hidden": false,
+        "label": "Square color",
+        "locked": false,
+        "name": "square_color",
+        "placeholder": "",
+        "required": false,
+        "showInCms": false
+      }
+    ],
+    "name": "Blog",
+    "oneOff": false
+  },
+  "castmembers": {
+    "controls": [
+      {
+        "controlType": "textfield",
+        "hidden": false,
+        "label": "Name",
+        "locked": true,
+        "name": "name",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Create Date",
+        "locked": true,
+        "name": "create_date",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Last Updated",
+        "locked": true,
+        "name": "last_updated",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Publish Date",
+        "locked": true,
+        "name": "publish_date",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "radio",
+        "help": "We sort regular cast members before guests.",
+        "hidden": false,
+        "label": "Cast type",
+        "locked": false,
+        "meta": {
+          "options": [
+            {
+              "value": "Regular"
+            },
+            {
+              "value": "Guest"
+            }
+          ]
+        },
+        "name": "cast_type",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "image",
+        "hidden": false,
+        "label": "Image",
+        "locked": false,
+        "name": "image",
+        "required": false,
+        "showInCms": true
+      },
+      {
+        "controlType": "textfield",
+        "hidden": true,
+        "label": "Preview URL",
+        "locked": true,
+        "name": "preview_url",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "wysiwyg",
+        "help": "Try and keep it to a short paragraph.",
+        "hidden": false,
+        "label": "Short bio",
+        "locked": false,
+        "meta": {
+          "image": false,
+          "link": true,
+          "quote": false,
+          "table": false,
+          "video": false
+        },
+        "name": "short_bio",
+        "placeholder": "",
+        "required": false,
+        "showInCms": true
+      },
+      {
+        "controlType": "relation",
+        "hidden": false,
+        "label": "episodes",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "episodes",
+          "reverseName": "cast_in_this_episode"
+        },
+        "name": "episodes",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "Twitter name, without the @ symbol.",
+        "hidden": false,
+        "label": "Twitter",
+        "locked": false,
+        "name": "twitter",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "",
+        "hidden": false,
+        "label": "Facebook URL",
+        "locked": false,
+        "name": "facebook_url",
+        "placeholder": "http://www.facebook.com/something/",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "relation",
+        "hidden": false,
+        "label": "Blog posts",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "blog",
+          "reverseName": "author"
+        },
+        "name": "blog_posts",
+        "required": false,
+        "showInCms": false
+      }
+    ],
+    "name": "Cast Members",
+    "oneOff": false
+  },
+  "episodes": {
+    "controls": [
+      {
+        "controlType": "textfield",
+        "hidden": false,
+        "label": "Name",
+        "locked": true,
+        "name": "name",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "textfield",
+        "help": "iTunes allows an additional subtitle for your episode name.",
+        "hidden": false,
+        "label": "Name subtitle",
+        "locked": false,
+        "name": "name_subtitle",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "number",
+        "help": "What number episode is this?",
+        "hidden": false,
+        "label": "Number",
+        "locked": false,
+        "name": "number",
+        "placeholder": "",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "image",
+        "hidden": false,
+        "label": "Image",
+        "locked": false,
+        "name": "image",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Create Date",
+        "locked": true,
+        "name": "create_date",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Last Updated",
+        "locked": true,
+        "name": "last_updated",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Publish Date",
+        "locked": true,
+        "name": "publish_date",
+        "required": false,
+        "showInCms": true
+      },
+      {
+        "controlType": "audio",
+        "hidden": false,
+        "label": "Audio file",
+        "locked": false,
+        "name": "audio_file",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "relation",
+        "help": "You can add new members on the left.",
+        "hidden": false,
+        "label": "Cast in this episode",
+        "locked": false,
+        "meta": {
+          "contentTypeId": "castmembers",
+          "reverseName": "episodes"
+        },
+        "name": "cast_in_this_episode",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "hidden": true,
+        "label": "Preview URL",
+        "locked": true,
+        "name": "preview_url",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "wysiwyg",
+        "help": "What happens in this episode?",
+        "hidden": false,
+        "label": "Description",
+        "locked": false,
+        "meta": {
+          "image": true,
+          "link": true,
+          "quote": true,
+          "table": true,
+          "video": true
+        },
+        "name": "description",
+        "required": false,
+        "showInCms": true
+      }
+    ],
+    "name": "episodes",
+    "oneOff": false
+  },
+  "podcastdetails": {
+    "controls": [
+      {
+        "controlType": "textfield",
+        "help": "What's the name of this podcast?",
+        "hidden": false,
+        "label": "Name",
+        "locked": true,
+        "name": "name",
+        "placeholder": "",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "textfield",
+        "help": "iTunes allows an optional subtitle, but it's totally optional.",
+        "hidden": false,
+        "label": "Name subtitle",
+        "locked": false,
+        "meta": {
+          "max": "500"
+        },
+        "name": "name_subtitle",
+        "required": false,
+        "showInCms": true
+      },
+      {
+        "controlType": "image",
+        "help": "The default image for your podcast.",
+        "hidden": false,
+        "label": "Image",
+        "locked": false,
+        "meta": {
+          "max": "500"
+        },
+        "name": "image",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "Who runs this thing? Can be a name or an entity.",
+        "hidden": false,
+        "label": "Author",
+        "locked": false,
+        "meta": {
+          "max": "500"
+        },
+        "name": "author",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "email",
+        "help": "The primary email people should contact you at. Also shows up in feeds.",
+        "hidden": false,
+        "label": "Email",
+        "locked": false,
+        "meta": {
+          "max": "500"
+        },
+        "name": "email",
+        "placeholder": "",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "radio",
+        "help": "Does this podcast use harsh language or talk about adult themes?",
+        "hidden": false,
+        "label": "Explicit?",
+        "locked": false,
+        "meta": {
+          "defaultValue": "No",
+          "options": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ]
+        },
+        "name": "explicit",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "url",
+        "help": "The URL of this site.",
+        "hidden": false,
+        "label": "Website",
+        "locked": false,
+        "meta": {
+          "max": "500"
+        },
+        "name": "website",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "textarea",
+        "help": "This is the description that shows on iTunes and other podcast importers. It should be shortish.",
+        "hidden": false,
+        "label": "Description",
+        "locked": false,
+        "meta": {
+          "max": "500"
+        },
+        "name": "description",
+        "required": true,
+        "showInCms": true
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Create Date",
+        "locked": true,
+        "name": "create_date",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Last Updated",
+        "locked": true,
+        "name": "last_updated",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "datetime",
+        "hidden": true,
+        "label": "Publish Date",
+        "locked": true,
+        "name": "publish_date",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textarea",
+        "help": "iTunes allows you to set some copyright info.",
+        "hidden": false,
+        "label": "Copyright",
+        "locked": false,
+        "meta": {
+          "max": "500"
+        },
+        "name": "copyright",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "hidden": true,
+        "label": "Preview URL",
+        "locked": true,
+        "name": "preview_url",
+        "required": true,
+        "showInCms": false
+      },
+      {
+        "controlType": "url",
+        "help": "Paste in the full URL to your podcast on iTunes.",
+        "hidden": false,
+        "label": "iTunes url",
+        "locked": false,
+        "name": "itunes_url",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "If you want comments, add your disqus username.",
+        "hidden": false,
+        "label": "Disqus username",
+        "locked": false,
+        "name": "disqus_username",
+        "placeholder": "",
+        "required": false,
+        "showInCms": false
+      },
+      {
+        "controlType": "textfield",
+        "help": "Twitter name for this podcast, minus the @ symbol.",
+        "hidden": false,
+        "label": "Twitter",
+        "locked": false,
+        "name": "twitter",
+        "placeholder": "",
+        "required": false,
+        "showInCms": false
+      }
+    ],
+    "name": "Podcast Details",
+    "oneOff": true
+  }
+}
