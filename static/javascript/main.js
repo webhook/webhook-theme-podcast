@@ -8,8 +8,11 @@ $(document).ready(function() {
   var winWidth = $( window ).width();
 
   if (winWidth < 481) {
-    $(document).on('click', '.mobile-menu-btn', 'nav ul li a', function(Event) {
+    $(document).on('click', '.mobile-menu-btn', function(Event) {
       $("nav ul").toggle();
+    });
+    $(document).on('ajaxified', function(Event) {
+      $("nav ul").hide();
     });
   }
 
