@@ -87,6 +87,8 @@
 
         // Ajaxify this link
         History.pushState(null,title,url);
+
+        $(document).trigger('ajaxified');
         event.preventDefault();
         return false;
       });
