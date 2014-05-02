@@ -4,9 +4,14 @@ $(document).ready(function() {
     $(".number-of-guests").hide();
     $(".guests").addClass("on");
   });
-  $(document).on('click', '.mobile-menu-btn', function(Event) {
-    $("nav ul").toggle();
-  });
+
+  var winWidth = $( window ).width();
+
+  if (winWidth < 481) {
+    $(document).on('click', '.mobile-menu-btn', 'nav ul li a', function(Event) {
+      $("nav ul").toggle();
+    });
+  }
 
   // Audio player
   var node = $('#audioPlayer');
