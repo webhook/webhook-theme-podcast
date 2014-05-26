@@ -16,11 +16,12 @@
         <description>{{ podcast.description }}</description>
         <itunes:owner>
           <itunes:name>{{ podcast.author }}</itunes:name>
-          <itunes:email>{{ podcast.emaile }}</itunes:email>
+          <itunes:email>{{ podcast.email }}</itunes:email>
         </itunes:owner>
         <itunes:image href="{{ podcast.image.url }}"/>
         <itunes:explicit>{{ podcast.explicit }}</itunes:explicit>
-        <itunes:category text="Gadgets"></itunes:category>
+        {# Add your itunes category information here #}
+        {# <itunes:category text="Gadgets"></itunes:category> #}
         <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="{{ getCurrentUrl() }}" rel="self" type="application/rss+xml"/>
         {% for episode in episodes %}
           <item>
@@ -31,7 +32,7 @@
               <itunes:image href="{{ epsidoe.image.url }}" />
               <enclosure url="{{ getSetting('siteUrl') }}{{ episode.audio_file.url }}"
                 length="{{ episode.audio_file.duration }}" type="{{ episode.audio_file.type }}"/>
-              <guid>{{ getSetting('siteURL') }}{{ epsisode.audio_file.url }}</guid>
+              <guid>{{ getSetting('siteUrl') }}{{ episode.audio_file.url }}</guid>
               <pubDate>{{ episode.publish_date|date("D, j M Y H:i:s ") }}</pubDate>
               {# Calculate duration in hours:minutes:seconds. #}
               <itunes:duration>{{ episode.audio_file.duration|duration }}</itunes:duration>
@@ -39,4 +40,3 @@
         {% endfor %}
     </channel>
 </rss>
-
