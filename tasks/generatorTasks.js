@@ -1,11 +1,11 @@
 
-var curVersion = 'v21';
+var curVersion = 'v23';
 
 var request = require('request');
 
 module.exports = function(grunt) {
 
-  var firebaseUrl = grunt.config.get('webhook').firebase || '';
+  var firebaseUrl = 'webhook';
   var firebaseUri = null;
   if(firebaseUrl) {
     firebaseUri = 'https://' + firebaseUrl +  '.firebaseio.com/generator_version.json';
@@ -18,7 +18,11 @@ module.exports = function(grunt) {
       request({ url: firebaseUri, json: true }, function(e, r, body) {
         if(body) {
           if(body !== curVersion) {
-            console.log('Your site is out of date. Please run "wh update" in the site directory to get the newest changes.'.red)
+            console.log('========================================================'.red);
+            console.log('# This site is using old Webhook code.     #'.red);
+            console.log('========================================================'.red);
+            console.log('#'.red + ' To update, run "wh update" in this folder.')
+            console.log('# ---------------------------------------------------- #'.red)
           }
 
           callback();

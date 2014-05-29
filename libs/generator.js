@@ -29,6 +29,35 @@ swigFilters.init(swig);
 swigTags.init(swig);
 swig.setDefaults({ cache: false });
 
+var wrap = function()
+{
+  var args = Array.prototype.slice.call(arguments);
+
+  var last = args.pop();
+  last = 'debugger;' +
+         'var global = null;' +
+         'var console = null;' +
+         'var v8debug = null;' + 
+         'var setTimeout = null;' +
+         'var setInterval = null;' + 
+         'var setImmediate = null;' +
+         'var clearTimeout = null;' +
+         'var clearInterval = null;' + 
+         'var clearImmediate = null;' +
+         'var root = null;' +
+         'var GLOBAL = null;' +
+         'var window = null;' +
+         'var process = null;' +
+         'var eval = null;' +
+         last;
+
+  args.push(last);
+
+  return Function.prototype.constructor.apply(this, args);
+};
+wrap.prototype = Function.prototype;
+Function = wrap;
+
 // Disable console log in various things
 //console.log = function () {};
 
@@ -40,7 +69,7 @@ swig.setDefaults({ cache: false });
 module.exports.generator = function (config, logger, fileParser) {
 
   var self = this;
-  var firebaseUrl = config.get('webhook').firebase || '';
+  var firebaseUrl = 'webhook';
   var liveReloadPort = config.get('connect')['wh-server'].options.livereload;
   var websocket = null;
   var strictMode = false;
@@ -366,7 +395,7 @@ module.exports.generator = function (config, logger, fileParser) {
 
               for(var key in publishedItems)
               {
-                var val = items[key];
+                var val = publishedItems[key];
 
                 newPath = baseNewPath + '/' + slug(val.name).toLowerCase() + '/index.html';
                 writeTemplate(file, newPath, { item: val });
