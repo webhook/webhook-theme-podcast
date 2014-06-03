@@ -30,9 +30,9 @@
               <itunes:subtitle>{{ episode.subtitle }}</itunes:subtitle>
               <itunes:summary>{{ episode.description }}</itunes:summary>
               <itunes:image href="{{ epsidoe.image.url }}" />
-              <enclosure url="{{ getSetting('siteUrl') }}{{ episode.audio_file.url }}"
+              <enclosure url="{{ getSetting('site_url') }}{{ episode.audio_file.url }}"
                 length="{{ episode.audio_file.duration }}" type="{{ episode.audio_file.type }}"/>
-              <guid>{{ getSetting('siteUrl') }}{{ episode.audio_file.url }}</guid>
+              <guid>{{ getSetting('site_url') }}{{ episode.audio_file.url }}</guid>
               <pubDate>{{ episode.publish_date|date("D, j M Y H:i:s ") }}</pubDate>
               {# Calculate duration in hours:minutes:seconds. #}
               <itunes:duration>{{ episode.audio_file.duration|duration }}</itunes:duration>
