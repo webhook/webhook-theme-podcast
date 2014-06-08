@@ -18,7 +18,7 @@
           <itunes:name>{{ podcast.author }}</itunes:name>
           <itunes:email>{{ podcast.email }}</itunes:email>
         </itunes:owner>
-        <itunes:image href="{{ podcast.image.url }}"/>
+        <itunes:image href="{{getSetting('site_url')}}{{ podcast.image.url }}"/>
         <itunes:explicit>{{ podcast.explicit }}</itunes:explicit>
         {# Add your itunes category information here #}
         {# <itunes:category text="Gadgets"></itunes:category> #}
@@ -28,12 +28,12 @@
               <title>{{ episode.name }}</title>
               <itunes:author>{{ podcast.author }}</itunes:author>
               <itunes:subtitle>{{ episode.subtitle }}</itunes:subtitle>
-              <itunes:summary>{{ episode.description }}</itunes:summary>
-              <itunes:image href="{{ epsidoe.image.url }}" />
-              <enclosure url="{{ getSetting('siteUrl') }}{{ episode.audio_file.url }}"
-                length="{{ episode.audio_file.duration }}" type="{{ episode.audio_file.type }}"/>
-              <guid>{{ getSetting('siteUrl') }}{{ episode.audio_file.url }}</guid>
-              <pubDate>{{ episode.publish_date|date("D, j M Y H:i:s ") }}</pubDate>
+              <itunes:summary>{{ episode.description|striptags }}</itunes:summary>
+              <itunes:image href="{{getSetting('site_url')}}{{ epsidoe.image.url }}" />
+              <enclosure url="{{ getSetting('site_url') }}{{ episode.audio_file.url }}"
+                length="{{Math.floor(episode.audio_file.duration) }}" type="{{ episode.audio_file.type }}"/>
+              <guid>{{ getSetting('site_url') }}{{ episode.audio_file.url }}</guid>
+              <pubDate>{{ episode.publish_date|date("D, d M Y H:i:s O") }}</pubDate>
               {# Calculate duration in hours:minutes:seconds. #}
               <itunes:duration>{{ episode.audio_file.duration|duration }}</itunes:duration>
           </item>
