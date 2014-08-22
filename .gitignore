@@ -15,7 +15,14 @@ results
 npm-debug.log
 node_modules
 vendor
+tasks
+libs
+options
+Gruntfile.js
+package.json
+pages/cms.html
 
 /.build
 /.firebase.conf
 /.sass-cache
+
