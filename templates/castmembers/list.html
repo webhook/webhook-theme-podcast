@@ -8,18 +8,20 @@
 
     {% set castmembers = get('castmembers') %}
 
-    <ul class="boxes">
-      {% for cast in castmembers|sort('cast_type', true) %}
-        <li>
-          <a href="{{ url(cast) }}">
-            <img src="{{ cast.image|imageCrop(300) }}">
-            <h4>{{ cast.name }}</h4>
-            <p class="date">{{ cast.cast_type }}</p>
-            <p class="desc">{{ cast.short_bio|striptags|truncate(100) }}</p>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+    <div class="container">
+      <ul class="boxes">
+        {% for cast in castmembers|sort('cast_type', true) %}
+          <li>
+            <a href="{{ url(cast) }}">
+              <img src="{{ cast.image|imageCrop(300) }}">
+              <h4>{{ cast.name }}</h4>
+              <p class="date">{{ cast.cast_type }}</p>
+              <p class="desc">{{ cast.short_bio|striptags|truncate(100) }}</p>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 
 {% endblock %}

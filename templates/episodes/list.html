@@ -13,23 +13,25 @@
   {% set episodes = get('episodes') %}
   {% set episodes = episodes|sort('publish_date', true) %}
 
-  {# Scaffolding only outputs the object.name, but feel to use any of the fields from your CMS form here. #}
-  <ul class="boxes">
-    {% for episode in episodes %}
-      <li>
-        <a href="{{ url(episode) }}">
-          <img src="{{ episode.image|imageCrop(300) }}">
-          <h4>Episode: #{{ episode.number }}</h4>
-          <p class="date">{{ episode.publish_date|date('F d Y') }}</p>
-          <p class="desc">{{ episode.description|striptags|truncate(100) }}</p>
-        </a>
-        {% if episode.audio_file %}
-          <span class="listen icon fa fa-play js-player-go" data-audio-url="{{ episode.audio_file.url }}" data-audio-title="{{ episode.name }}"> Listen</span>
-          <a href="{{ episode.audio_file.url }}" class="download icon fa fa-download"> Download</a>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="container">
+    {# Scaffolding only outputs the object.name, but feel to use any of the fields from your CMS form here. #}
+    <ul class="boxes">
+      {% for episode in episodes %}
+        <li>
+          <a href="{{ url(episode) }}">
+            <img src="{{ episode.image|imageCrop(300) }}">
+            <h4>Episode: #{{ episode.number }}</h4>
+            <p class="date">{{ episode.publish_date|date('F d Y') }}</p>
+            <p class="desc">{{ episode.description|striptags|truncate(100) }}</p>
+          </a>
+          {% if episode.audio_file %}
+            <span class="listen icon fa fa-play js-player-go" data-audio-url="{{ episode.audio_file.url }}" data-audio-title="{{ episode.name }}"> Listen</span>
+            <a href="{{ episode.audio_file.url }}" class="download icon fa fa-download"> Download</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 
   {# The actual pagination template, feel free to edit or replace the default one. #}
 

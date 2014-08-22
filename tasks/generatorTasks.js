@@ -1,5 +1,5 @@
 
-var curVersion = 'v23';
+var curVersion = 'v39';
 
 var request = require('request');
 
@@ -52,10 +52,6 @@ module.exports = function(grunt) {
 
 
     var result = generator.makeScaffolding(name, done, force);
-
-    if(!result) {
-      grunt.log.error('Scaffolding for ' + name + ' already exists, use --force to overwrite');
-    }
   });
 
   grunt.registerTask('watch', 'Watch for changes in templates and regenerate site', function() {
@@ -78,7 +74,9 @@ module.exports = function(grunt) {
       opts: { stdio: 'inherit' }
     }, function (err, result, code) {
       if (err || code > 0) {
-        grunt.warn(result.stderr || result.stdout);
+        grunt.log.warn('A problem occured while trying to open a browser window to connect to the site.')
+        grunt.log.warn(result.stderr || result.stdout);
+        grunt.log.warn('In order to access the site, please navigate to \'localhost:2002\' in your web browser.')
       }
       grunt.log.writeln('\n' + result.stdout);
     });
@@ -92,13 +90,6 @@ module.exports = function(grunt) {
   // Build Task.
   grunt.registerTask('build', 'Clean files and then generate static site into build', function() {
     var done = this.async();
-
-    var versionString = grunt.option('build-version');
-
-    if(versionString)
-    {
-      generator.setBuildVersion(versionString);
-    }
 
     var strict = grunt.option('strict');
 
@@ -131,8 +122,9 @@ module.exports = function(grunt) {
     var sitename = grunt.option('sitename');
     var secretkey = grunt.option('secretkey');
     var copyCms = grunt.option('copycms');
+    var firebase = grunt.option('firebase');
 
-    generator.init(sitename, secretkey, copyCms, done);
+    generator.init(sitename, secretkey, copyCms, firebase, done);
   });
 
   // Check if initialized properly before running all these tasks

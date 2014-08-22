@@ -6,7 +6,6 @@ var marked = require('marked');
 var dateFormatter = require('./dateformatter.js');
 
 if (typeof String.prototype.startsWith != 'function') {
-  // see below for better implementation!
   String.prototype.startsWith = function (str){
     return this.indexOf(str) == 0;
   };
@@ -327,7 +326,58 @@ module.exports.init = function (swig) {
     return filtered;
   }
 
+  var abs = function(input) {
+    return Math.abs(input);
+  };
+
+  var linebreaks = function(input) {
+    var parts = input.replace('\r\n', '\n').replace('\r', '\n').split('\n');
+ 
+    var joined = parts.join('<br/>');
+
+    return '<p>' + joined + '</p>'
+  };
+
+  var jsonP = function(input, callbackName) {
+    if(!callbackName) {
+      callbackName = 'callback';
+    }
+    return '/**/' + callbackName +  '(' + JSON.stringify(input) + ')';
+  };
+
+  var pluralize = function(input, singular, suffix) {
+    if(singular && !suffix) {
+      suffix = singular;
+      singular = '';
+    }
+
+    if(!singular && !suffix) {
+      suffix = 's';
+      singular = '';
+    }
+
+    var number = input;
+
+    if(_.isArray(input)) {
+      number = input.length;
+    }
+
+    if(typeof number !== 'number') {
+      return singular;
+    }
+
+    if(number > 1 || number === 0) {
+      return suffix;
+    } 
+
+    return singular;
+
+    return suffix;
+  }
+
   markdown.safe = true;
+  linebreaks.safe = true;
+  jsonP.safe = true;
 
   swig.setFilter('upper', upper);
   swig.setFilter('slice', slice);
@@ -344,4 +394,8 @@ module.exports.init = function (swig) {
   swig.setFilter('date', date);
   swig.setFilter('where', where);
   swig.setFilter('duration', duration);
+  swig.setFilter('abs', abs);
+  swig.setFilter('linebreaks', linebreaks);
+  swig.setFilter('pluralize', pluralize);
+  swig.setFilter('jsonp', jsonP);
 };

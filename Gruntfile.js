@@ -20,7 +20,7 @@ module.exports = function(grunt) {
       dev: {
         options: {
           style: 'expanded',
-          loadPath: ['vendor/bourbon/app/assets/stylesheets', 'vendor/neat/app/assets/stylesheets', 'vendor/font-awesome/scss', 'vendor/wyrm/sass']
+          loadPath: ['vendor/bourbon/dist', 'vendor/neat/app/assets/stylesheets', 'vendor/font-awesome/scss', 'vendor/wyrm/sass']
         },
         files: [{
           expand: true,

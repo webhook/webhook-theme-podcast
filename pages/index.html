@@ -10,34 +10,35 @@
   {# Group podcasts episodes and the blog into a single array. #}
   {% set editorial = get('episodes','blog') %}
   {% set editorial = editorial|sort('publish_date', true) %}
-
-  <ul class="boxes">
-    {% for item in editorial %}
-      <li>
-        {# Episodes and podcasts are slightly different #}
-        {% if item._type == "episodes" %}
-          <a href="{{ url(item) }}">
-            <img src="{{ item.image|imageCrop(300) }}">
-            <h4>Episode: #{{ item.number }}</h4>
-            <p class="date">{{ item.publish_date|date('F d Y') }}</p>
-            <p class="desc">{{ item.description|striptags|truncate(100) }}</p>
-          </a>
-          {% if item.audio_file %}
-            <span class="listen icon fa fa-play js-player-go" data-audio-url="{{ item.audio_file.url }}" data-audio-title="{{ item.name }}"> Listen</span>
-            <a href="{{ item.audio_file.url }}" class="download icon fa fa-download"> Download</a>
+  <div class="container">
+    <ul class="boxes">
+      {% for item in editorial %}
+        <li>
+          {# Episodes and podcasts are slightly different #}
+          {% if item._type == "episodes" %}
+            <a href="{{ url(item) }}">
+              <img src="{{ item.image|imageCrop(300) }}">
+              <h4>Episode: #{{ item.number }}</h4>
+              <p class="date">{{ item.publish_date|date('F d Y') }}</p>
+              <p class="desc">{{ item.description|striptags|truncate(100) }}</p>
+            </a>
+            {% if item.audio_file %}
+              <span class="listen icon fa fa-play js-player-go" data-audio-url="{{ item.audio_file.url }}" data-audio-title="{{ item.name }}"> Listen</span>
+              <a href="{{ item.audio_file.url }}" class="download icon fa fa-download"> Download</a>
+            {% endif %}
+          {% else %}
+            <a href="{{ url(item) }}">
+              {# Build a fake cover for blogs, apply a background color if the CMS provides one. #}
+              <div class="square" style="background-color:{{ item.square_color }}"><span>{{ item.name }}</span></div>
+              <h4>Blog post</h4>
+              <p class="date">{{ item.publish_date|date('F d Y') }}</p>
+              <p class="desc">{{ item.deck|striptags|truncate(100) }}</p>
+            </a>
           {% endif %}
-        {% else %}
-          <a href="{{ url(item) }}">
-            {# Build a fake cover for blogs, apply a background color if the CMS provides one. #}
-            <div class="square" style="background-color:{{ item.square_color }}"><span>{{ item.name }}</span></div>
-            <h4>Blog post</h4>
-            <p class="date">{{ item.publish_date|date('F d Y') }}</p>
-            <p class="desc">{{ item.deck|striptags|truncate(100) }}</p>
-          </a>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 
 
 {% endblock %}
