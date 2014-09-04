@@ -11,18 +11,19 @@ lib-cov
 pids
 logs
 results
-
-npm-debug.log
-node_modules
-vendor
-tasks
+bower_components
 libs
 options
-Gruntfile.js
+tasks
+404.html
+npm-debug.log
+node_modules
 package.json
+Gruntfile.js
 pages/cms.html
-
+.gitignore
+.sass-cache
 /.build
 /.firebase.conf
-/.sass-cache
+
 
