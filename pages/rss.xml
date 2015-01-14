@@ -10,7 +10,7 @@
       <link>{{ podcast.website }}</link>
         <language>en-us</language>
         <copyright>{{ podcast.copyright }}</copyright>
-        <itunes:subtitle>{{ podcast.subtitle }}</itunes:subtitle>
+        <itunes:subtitle>{{ podcast.name_subtitle }}</itunes:subtitle>
         <itunes:author>{{ podcast.author }}</itunes:author>
         <itunes:summary>{{ podcast.description }}</itunes:summary>
         <description>{{ podcast.description }}</description>
@@ -29,7 +29,7 @@
               <itunes:author>{{ podcast.author }}</itunes:author>
               <itunes:subtitle>{{ episode.subtitle }}</itunes:subtitle>
               <itunes:summary>{{ episode.description|striptags }}</itunes:summary>
-              <itunes:image href="{{getSetting('site_url')}}{{ epsidoe.image.url }}" />
+              <itunes:image href="{{getSetting('site_url')}}{{ episode.image.url }}" />
               <enclosure url="{{ getSetting('site_url') }}{{ episode.audio_file.url }}"
                 length="{{Math.floor(episode.audio_file.duration) }}" type="{{ episode.audio_file.type }}"/>
               <guid>{{ getSetting('site_url') }}{{ episode.audio_file.url }}</guid>
